@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+</head>
+<body>
+    <table border="2">
+        <tr>
+        <th>Name</th>
+        <th>Action</th>
+        <th>Output</th>
+        </tr>
+        <tr>
+            <td>Dice</td>
+            <td><img src="https://cdn.dribbble.com/users/280033/screenshots/1775652/attachments/290285/die_1600.png" wridth="30" height="30" onclick="
+            Dice()"></td>
+           <td id="o1"></td>
+        </tr>
+        <tr>
+            <td>OTP</td>
+            <td><img src="https://www.computerhope.com/jargon/o/otp.jpg" wridth="20" height="20" onclick="Otp()"></td>
+            <td id="o2"></td>
+        </tr>
+        <tr>
+            <td>Today's Dinner</td>
+            <td><img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmt4YTE4dWI5cGJqOHZmdzU3ZXhpNHI2dG00eTNleGZhcGF0bnYzNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/LABpe2fJzUvZKSqeD9/giphy.gif" width="40"  height="40"
+                onclick="Dinner()"></td>
+            <td id="o3"></td>
+        </tr>
+        <tr>
+             <td>Rock paper scissors</td>
+            <td>
+                <button onclick="rps(1)">Rock</button>
+                <button onclick="rps(2)">Paper</button>
+                <button onclick="rps(3)">Scissors</button>
+            </td>
+            </td id="o4"></td>
+        </tr>
+        <tr>
+            <td>Though of the day</td>
+            <td><button onclick="Quotes()">Click Me</button></td>
+            <td id="o5"></td>
+        </tr>
+    </table>
+
+        <script>
+             function Quotes(){
+            let menu = ['Positive thinking will let you do everything better than negative thinking will.',' A dead end is just a good place to turn around.','It takes but one positive thought when given a chance to survive and thrive to overpower an entire army of negative thoughts.','Luck is a dividend of sweat. The more you sweat, the luckier you get.','You may find the worst enemy or best friend in yourself.','The power of positive thinking can change your life.',
+          'I choose my own path and I request you to stay out of it!','I am only nice to those who are nice to me, so stay careful.'];
+            let l = menu.length;
+            let x = Math.floor(Math.random()*l);
+            document.querySelector('#o5').innerText = menu[x];
+        }
+        function rps(user){
+            let compt = Math.floor(Math.random()*3)+1;
+            console.log(compt);
+            if(user==compt)
+                document.querySelector('#o4').innerText ="Tie";
+            else if(user==1&&compt==2 || user==3 && compt== 1 || user==2 && compt==3)
+                document.querySelector('#o4').innerHTML ='Computer Win'
+            else
+                document.querySelector('#o4').innerHTML = 'User Win';
+        }
+        function Dinner(){
+            let menu = ['Veg Biryani ','Dhosa','Chole-Bhature','Methi-Paratha','Pasta','Dal-Makhni','Dhokla','Panner-Tikka','. Bhindi masala ','Chana masala','Pani-Puri',' Bisi bele bath' ,'Khadi-Chawal','Rajma chawal'];
+            let l = menu.length;
+            let x = Math.floor(Math.random()*l);
+            document.querySelector('#o3').innerText = menu[x];
+        }
+        function Otp(){
+            let x = Math.floor(Math.random()*(999999-100000))+100000;
+            document.querySelector('#o2').innerText = x;
+        }
+        function Dice(){
+            let num=['1','2','3','4','5','6'];
+            let l=num.length;
+            let x = Math.floor(Math.random()*l);
+            document.querySelector('#o1').innerText = num[x];
+        }
+        </script>
+</body>
+</html>
